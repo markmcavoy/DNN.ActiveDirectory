@@ -75,7 +75,10 @@ Namespace DotNetNuke.Authentication.ActiveDirectory
             End If
 
             If (loggedOnUserName.Length > 0) Then
-                Dim objUser As UserInfo
+
+				loggedOnUserName = loggedOnUserName.Replace("GiGi\", "")
+
+				Dim objUser As UserInfo
                 Dim objAuthUser As ADUserInfo
                 objAuthUser = objAuthUserController.GetUser(loggedOnUserName)
                 objUser = DNNUserController.GetUserByName(_portalSettings.PortalId, loggedOnUserName)
